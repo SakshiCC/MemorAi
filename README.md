@@ -8,7 +8,7 @@ ElderMind AI is an AI assistant application designed to aid cognitive support, m
 ElderMind-AI/
 │
 ├── app/
-│   └── streamlit_app.py
+│   └── nicegui_app.py
 │
 ├── database/
 │   ├── db_manager.py
