@@ -1,0 +1,356 @@
+MemorAi/
+|-- .env
+|-- .gitignore
+|-- README.md
+|-- app/
+|   |-- nicegui_app.py
+|   |-- nicegui_ui/
+|   |   |-- __init__.py
+|   |   |-- ask_page.py
+|   |   |-- browser_tts.py
+|   |   |-- camera_page.py
+|   |   |-- conversation_page.py
+|   |   |-- home_page.py
+|   |   |-- layout.py
+|   |   |-- medicine_page.py
+|   |   |-- people_page.py
+|   |   |-- settings_page.py
+|   |   |-- styles.py
+|   |   |-- theme.py
+|   |   |-- timeline_page.py
+|   |   |-- voice_page.py
+|   |-- services/
+|   |   |-- __init__.py
+|   |   |-- camera_service.py
+|   |-- streamlit_app.py
+|   |-- ui/
+|       |-- __init__.py
+|       |-- ask_memorai.py
+|       |-- camera_monitor.py
+|       |-- camera_page.py
+|       |-- home.py
+|       |-- home_memory_repository.py
+|       |-- home_rag_adapter.py
+|       |-- memory_timeline.py
+|       |-- people.py
+|       |-- settings.py
+|       |-- vision_adapter.py
+|       |-- voice_assistant.py
+|-- before_cuda_torch.txt
+|-- config.py
+|-- conversation/
+|   |-- __init__.py
+|   |-- conversation_repository.py
+|   |-- conversation_service.py
+|   |-- conversation_settings.py
+|   |-- importance_analyzer.py
+|   |-- metadata_extractor.py
+|-- data/
+|   |-- audio/
+|   |   |-- .gitkeep
+|   |-- chroma/
+|   |   |-- 1bd3cd17-4951-48e2-b092-86679701ef8a/
+|   |   |-- chroma.sqlite3
+|   |-- embeddings/
+|   |   |-- .gitkeep
+|   |-- events/
+|   |   |-- object_events.csv
+|   |-- exports/
+|   |   |-- .gitkeep
+|   |-- images/
+|   |   |-- .gitkeep
+|   |   |-- banana_20260730_220136_605917.jpg
+|   |   |-- banana_20260730_221934_159981.jpg
+|   |   |-- cell_phone_20260730_220135_457775.jpg
+|   |   |-- cell_phone_20260730_221727_708064.jpg
+|   |   |-- cell_phone_20260730_221928_353440.jpg
+|   |   |-- cell_phone_20260730_222439_858586.jpg
+|   |   |-- cell_phone_20260730_223007_667663.jpg
+|   |   |-- cell_phone_20260730_224317_201758.jpg
+|   |   |-- cell_phone_20260730_224327_228146.jpg
+|   |   |-- cell_phone_20260731_201835_510488.jpg
+|   |   |-- hair_drier_20260730_220134_391835.jpg
+|   |   |-- hair_drier_20260730_221927_294928.jpg
+|   |   |-- person_20260730_220133_739760.jpg
+|   |   |-- person_20260730_221726_246005.jpg
+|   |   |-- person_20260730_221926_989347.jpg
+|   |   |-- person_20260730_221937_016183.jpg
+|   |   |-- person_20260730_222439_683469.jpg
+|   |   |-- person_20260730_223004_548986.jpg
+|   |   |-- person_20260730_223014_551746.jpg
+|   |   |-- person_20260730_224315_891109.jpg
+|   |   |-- person_20260730_224325_984671.jpg
+|   |   |-- person_20260731_201820_246413.jpg
+|   |   |-- person_20260731_201830_380958.jpg
+|   |   |-- person_20260731_201840_524665.jpg
+|   |   |-- remote_20260730_221930_236637.jpg
+|   |   |-- remote_20260730_222441_971134.jpg
+|   |   |-- remote_20260731_201837_565669.jpg
+|   |-- medicine_ocr_cache.json
+|   |-- medicines/
+|   |   |-- registered/
+|   |-- people/
+|   |   |-- registered/
+|   |   |-- registration_test/
+|   |-- temp/
+|       |-- .gitkeep
+|       |-- face_test.jpeg
+|       |-- medicine_registration/
+|       |-- people_registration/
+|-- database/
+|   |-- __init__.py
+|   |-- backfill_conversation_metadata.py
+|   |-- conversation_vector_memory.py
+|   |-- db_manager.py
+|   |-- event_repository.py
+|   |-- index_existing_conversations.py
+|   |-- index_existing_memories.py
+|   |-- medicine_repository.py
+|   |-- medicine_vector_memory.py
+|   |-- mysql_connection.py
+|   |-- person_repository.py
+|   |-- person_vector_memory.py
+|   |-- test_connection.py
+|   |-- vector_memory.py
+|-- environment.yml
+|-- evidence/
+|   |-- book_20260808_212813_924957.jpg
+|   |-- book_20260808_212824_338907.jpg
+|   |-- book_20260809_222156_898374.jpg
+|   |-- cell_phone_20260808_201551_896253.jpg
+|   |-- cell_phone_20260808_201618_893965.jpg
+|   |-- cell_phone_20260808_201627_385848.jpg
+|   |-- cell_phone_20260808_212753_111955.jpg
+|   |-- cell_phone_20260809_214323_778338.jpg
+|   |-- cell_phone_20260809_221833_521711.jpg
+|   |-- cell_phone_20260809_222104_431526.jpg
+|   |-- cell_phone_20260809_222112_482504.jpg
+|   |-- cell_phone_20260809_222135_019430.jpg
+|   |-- cell_phone_20260809_222143_142676.jpg
+|   |-- cell_phone_20260813_200240_718372.jpg
+|   |-- cell_phone_20260813_200249_768078.jpg
+|   |-- cell_phone_20260813_223314_097972.jpg
+|   |-- cell_phone_20260814_170253_166890.jpg
+|   |-- cell_phone_20260814_224116_019279.jpg
+|   |-- cell_phone_20260814_224124_453716.jpg
+|   |-- cell_phone_20260815_221605_552803.jpg
+|   |-- cell_phone_20260818_201038_587034.jpg
+|   |-- cup_20260816_143023_388560.jpg
+|   |-- cup_20260816_143039_895464.jpg
+|   |-- medicines/
+|   |   |-- omez_20260815_232904_709865.jpg
+|   |   |-- omez_20260815_233601_092565.jpg
+|   |   |-- omez_20260815_233906_675398.jpg
+|   |   |-- omez_20260815_235312_008816.jpg
+|   |   |-- omez_20260816_000220_905396.jpg
+|   |   |-- omez_20260816_000839_505192.jpg
+|   |   |-- omez_20260816_134252_880510.jpg
+|   |   |-- omez_20260816_141944_927558.jpg
+|   |   |-- omez_20260816_142756_607195.jpg
+|   |   |-- omez_20260816_142810_811204.jpg
+|   |   |-- omez_20260816_143433_688926.jpg
+|   |   |-- omez_20260816_145027_368571.jpg
+|   |   |-- omez_20260816_145102_458335.jpg
+|   |   |-- omez_20260816_145828_842575.jpg
+|   |   |-- omez_20260816_152632_863525.jpg
+|   |-- people/
+|       |-- monitor_test_person_20260814_000316_463953.jpg
+|       |-- monitor_test_person_20260814_214828_175677.jpg
+|       |-- sakshi_20260814_215942_724770.jpg
+|       |-- sakshi_20260814_220142_849553.jpg
+|       |-- sakshi_20260814_223459_816555.jpg
+|       |-- sakshi_20260814_224042_543059.jpg
+|       |-- sakshi_20260814_232724_198787.jpg
+|       |-- sakshi_20260814_233848_243111.jpg
+|       |-- sakshi_20260815_221538_484149.jpg
+|       |-- sakshi_20260815_223016_950868.jpg
+|       |-- sakshi_20260815_223225_296561.jpg
+|       |-- sakshi_20260815_223550_988479.jpg
+|       |-- sakshi_20260815_223709_220269.jpg
+|       |-- sakshi_20260815_223904_429531.jpg
+|       |-- sakshi_20260815_224101_915844.jpg
+|       |-- sakshi_20260815_224552_016101.jpg
+|       |-- sakshi_20260815_224739_764564.jpg
+|       |-- sakshi_20260815_230957_625642.jpg
+|       |-- sakshi_20260815_231917_293926.jpg
+|       |-- sakshi_20260815_232240_672645.jpg
+|       |-- sakshi_20260815_232837_978120.jpg
+|       |-- sakshi_20260815_233534_292082.jpg
+|       |-- sakshi_20260815_233827_370677.jpg
+|       |-- sakshi_20260815_234911_542581.jpg
+|       |-- sakshi_20260815_235249_310069.jpg
+|       |-- sakshi_20260815_235416_903450.jpg
+|       |-- sakshi_20260816_000120_777869.jpg
+|       |-- sakshi_20260816_000816_467988.jpg
+|       |-- sakshi_20260816_000926_610377.jpg
+|       |-- sakshi_20260816_002715_553144.jpg
+|       |-- sakshi_20260816_102654_058657.jpg
+|       |-- sakshi_20260816_102901_561480.jpg
+|       |-- sakshi_20260816_102956_833831.jpg
+|       |-- sakshi_20260816_104226_928834.jpg
+|       |-- sakshi_20260816_104435_048520.jpg
+|       |-- sakshi_20260816_104538_689478.jpg
+|       |-- sakshi_20260816_104706_024561.jpg
+|       |-- sakshi_20260816_104742_157514.jpg
+|       |-- sakshi_20260816_112652_659911.jpg
+|       |-- sakshi_20260816_131410_786681.jpg
+|       |-- sakshi_20260816_131612_457214.jpg
+|       |-- sakshi_20260816_131951_697144.jpg
+|       |-- sakshi_20260816_134012_702490.jpg
+|       |-- sakshi_20260816_134230_245543.jpg
+|       |-- sakshi_20260816_134433_442584.jpg
+|       |-- sakshi_20260816_135051_644674.jpg
+|       |-- sakshi_20260816_135834_053120.jpg
+|       |-- sakshi_20260816_141511_365904.jpg
+|       |-- sakshi_20260816_141905_675627.jpg
+|       |-- sakshi_20260816_142112_366428.jpg
+|       |-- sakshi_20260816_142738_224487.jpg
+|       |-- sakshi_20260816_142952_409257.jpg
+|       |-- sakshi_20260816_143413_997159.jpg
+|       |-- sakshi_20260816_145009_289581.jpg
+|       |-- sakshi_20260816_145754_420675.jpg
+|       |-- sakshi_20260816_150815_039586.jpg
+|       |-- sakshi_20260816_152557_675284.jpg
+|       |-- sakshi_20260816_193856_712994.jpg
+|       |-- sakshi_20260816_195514_348860.jpg
+|       |-- sakshi_20260816_230310_628444.jpg
+|       |-- sakshi_20260818_200921_279266.jpg
+|       |-- sakshi_20260818_201220_448726.jpg
+|-- face/
+|   |-- download_face_models.py
+|   |-- face_recognition.py
+|   |-- person_monitor.py
+|   |-- person_registration.py
+|-- file_structure.txt
+|-- llm/
+|   |-- chat.py
+|-- medicine/
+|   |-- __init__.py
+|   |-- download_hand_model.py
+|   |-- hand_landmarker.py
+|   |-- medicine_action_tracker.py
+|   |-- medicine_camera_pipeline.py
+|   |-- medicine_image_processor.py
+|   |-- medicine_monitor.py
+|   |-- medicine_recognizer.py
+|   |-- medicine_registration.py
+|   |-- medicine_service.py
+|   |-- medicine_text_recognizer.py
+|-- memory/
+|   |-- conversation_retriever.py
+|   |-- medicine_retriever.py
+|   |-- person_retriever.py
+|   |-- retriever.py
+|-- models/
+|   |-- .gitkeep
+|   |-- embeddings/
+|   |   |-- .gitkeep
+|   |-- face/
+|   |   |-- .gitkeep
+|   |   |-- face_detection_yunet_2023mar.onnx
+|   |   |-- face_recognition_sface_2021dec.onnx
+|   |-- medicine/
+|   |   |-- hand_landmarker.task
+|   |-- whisper/
+|   |   |-- .gitkeep
+|   |-- yolo/
+|       |-- yolo11n.pt
+|       |-- yolo11s.pt
+|       |-- yolov8n.pt
+|-- rag/
+|   |-- embeddings.py
+|   |-- medicine_memory_search.py
+|   |-- memory_search.py
+|   |-- person_memory_search.py
+|-- recordings/
+|   |-- adaptive_microphone_test.wav
+|   |-- browser/
+|   |-- conversations/
+|   |-- microphone_test.wav
+|   |-- voice_question.wav
+|-- requirements-lock.txt
+|-- requirements.txt
+|-- speech/
+|   |-- __init__.py
+|   |-- microphone.py
+|   |-- transcription.py
+|   |-- voice_chat.py
+|   |-- whisper_module.py
+|-- tests/
+|   |-- .gitkeep
+|   |-- __init__.py
+|   |-- backfill_medicine_ocr_keywords.py
+|   |-- cleanup_unified_rag_test_data.py
+|   |-- demo.py
+|   |-- output/
+|   |   |-- medicine_preprocessing/
+|   |-- test.py
+|   |-- test_backfill_conversation_metadata.py
+|   |-- test_camera_monitor.py
+|   |-- test_conversation_importance_diagnostic.py
+|   |-- test_conversation_metadata.py
+|   |-- test_conversation_participant_alias.py
+|   |-- test_conversation_privacy.py
+|   |-- test_conversation_rag.py
+|   |-- test_conversation_repository.py
+|   |-- test_conversation_retriever.py
+|   |-- test_conversation_semantic_safety.py
+|   |-- test_conversation_service.py
+|   |-- test_conversation_unknown_participant.py
+|   |-- test_conversation_vector_integration.py
+|   |-- test_conversation_vector_memory.py
+|   |-- test_face_recognition.py
+|   |-- test_index_existing_conversations.py
+|   |-- test_live_medicine_camera.py
+|   |-- test_live_person_vector_sync.py
+|   |-- test_medicine_action_tracker.py
+|   |-- test_medicine_camera_pipeline.py
+|   |-- test_medicine_image_processor.py
+|   |-- test_medicine_monitor.py
+|   |-- test_medicine_rag_e2e.py
+|   |-- test_medicine_recognizer.py
+|   |-- test_medicine_registration.py
+|   |-- test_medicine_repository.py
+|   |-- test_medicine_retriever.py
+|   |-- test_medicine_service.py
+|   |-- test_medicine_text_recognizer.py
+|   |-- test_medicine_vector_memory.py
+|   |-- test_microphone.py
+|   |-- test_nicegui_tts.py
+|   |-- test_person_monitor.py
+|   |-- test_person_rag.py
+|   |-- test_person_recognition.py
+|   |-- test_person_registration.py
+|   |-- test_person_relation.py
+|   |-- test_person_repository.py
+|   |-- test_person_retriever.py
+|   |-- test_person_semantic_retriever.py
+|   |-- test_person_vector_memory.py
+|   |-- test_rag.py
+|   |-- test_speech_pipeline.py
+|   |-- test_transcription.py
+|   |-- test_unified_rag.py
+|   |-- test_unified_timeline.py
+|   |-- test_vector_memory.py
+|   |-- test_voice_chat.py
+|   |-- test_voice_conversation_rag.py
+|   |-- test_voice_unified_rag.py
+|   |-- test_whisper.py
+|-- timeline/
+|   |-- timeline_manager.py
+|-- utils/
+|   |-- __init__.py
+|   |-- constants.py
+|   |-- file_manager.py
+|   |-- helpers.py
+|   |-- logger.py
+|-- vision/
+|   |-- __init__.py
+|   |-- detection_confirmor.py
+|   |-- event_logger.py
+|   |-- location_mapper.py
+|   |-- object_detection.py
+|   |-- object_detector.py
+|   |-- test_webcam.py
+|-- yolo11s.pt
+|-- yolo26n.pt
